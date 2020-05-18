@@ -1,0 +1,48 @@
+openapi: 3.0.2
+info:
+  title: Starter
+  version: 1.1.64
+  description: Starter app's API definitions.
+servers:
+  -
+    url: 'http://localhost/v1'
+paths:
+  /user:
+    summary: Get the user's information and permissions
+    description: The REST endpoint/path used to return a `User` entity.
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: Successful response - returns a user.
+        '400':
+          content:
+            application/json: {}
+          description: Failure - please input a username in the proper format.
+      summary: Get a user
+      description: Interfaces with authentication to retrieve user attributes and permissions
+    parameters:
+      -
+        name: username
+        description: A string with a authenticated username
+        schema:
+          type: string
+        in: query
+        required: true
+components:
+  schemas:
+    User:
+      description: User class
+      required:
+        - permissions
+        - info
+      type: object
+      properties:
+        permissions:
+          description: ''
+          type: array
+          items:
+            type: string
