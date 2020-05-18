@@ -1,4 +1,4 @@
-package afcea.mgm.event.entities;
+package tron.training.starter.entities;
 
 import org.hibernate.annotations.Type;
 

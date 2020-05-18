@@ -1,15 +1,14 @@
-package afcea.mgm.event;
+package tron.training.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 //@EnableTransactionManagement
-public class EventApplication {
+public class StarterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EventApplication.class, args);
+		SpringApplication.run(StarterApplication.class, args);
 	}
 
 }

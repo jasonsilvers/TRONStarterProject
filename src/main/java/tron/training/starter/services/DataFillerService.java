@@ -1,25 +1,23 @@
-package afcea.mgm.event.services;
+package tron.training.starter.services;
 
-import afcea.mgm.event.dao.CourseDAO;
-import afcea.mgm.event.dao.TeacherDAO;
-import afcea.mgm.event.entities.Course;
-import afcea.mgm.event.entities.Teacher;
+import tron.training.starter.repositories.CourseRepository;
+import tron.training.starter.repositories.TeacherRepository;
+import tron.training.starter.entities.Course;
+import tron.training.starter.entities.Teacher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class DataFillerService {
-    private final CourseDAO courseDAO;
-    private final TeacherDAO teacherDAO;
+    private final CourseRepository courseRepository;
+    private final TeacherRepository teacherRepository;
 
 
-    public DataFillerService(CourseDAO courseDAO, TeacherDAO teacherDAO) {
-        this.courseDAO = courseDAO;
-        this.teacherDAO = teacherDAO;
+    public DataFillerService(CourseRepository courseRepository, TeacherRepository teacherRepository) {
+        this.courseRepository = courseRepository;
+        this.teacherRepository = teacherRepository;
     }
     @PostConstruct
     @Transactional
@@ -40,19 +38,19 @@ public class DataFillerService {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9uI1Cb-nQ2uJOph4_t96KRvLSMjczAKnHLJYi1nqWXagvqWc4",
                 "bob@bob.com"
         );
-        teacherDAO.save(pj);
-        teacherDAO.save(px);
-        teacherDAO.save(pt);
+        teacherRepository.save(pj);
+        teacherRepository.save(px);
+        teacherRepository.save(pt);
         // create courses
         Course mathematics = new Course("Mathematics", 20, (short) 10, pj);
         Course spanish = new Course("Spanish", 20, (short) 10, pj);
         Course dealingWithUnknown = new Course("Dealing with unknown", 10, (short) 100, pj);
         Course handlingYourMentalPower = new Course("Handling your mental power", 50, (short) 100, pj);
         Course introductionToPsychology = new Course("Introduction to psychology", 90, (short) 100, pj);
-        courseDAO.save(mathematics);
-        courseDAO.save(spanish);
-        courseDAO.save(dealingWithUnknown);
-        courseDAO.save(handlingYourMentalPower);
-        courseDAO.save(introductionToPsychology);
+        courseRepository.save(mathematics);
+        courseRepository.save(spanish);
+        courseRepository.save(dealingWithUnknown);
+        courseRepository.save(handlingYourMentalPower);
+        courseRepository.save(introductionToPsychology);
     }
 }
