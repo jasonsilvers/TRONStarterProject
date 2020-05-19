@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Teacher extends EntityWithUUID {
+public class TeacherEntity extends EntityWithUUID {
     private String name;
     private String pictureUrl;
     private String email;

@@ -2,8 +2,8 @@ package tron.training.starter.services;
 
 import tron.training.starter.repositories.CourseRepository;
 import tron.training.starter.repositories.TeacherRepository;
-import tron.training.starter.entities.Course;
-import tron.training.starter.entities.Teacher;
+import tron.training.starter.entities.CourseEntity;
+import tron.training.starter.entities.TeacherEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,18 +22,18 @@ public class DataFillerService {
     @PostConstruct
     @Transactional
     public void fillData(){
-        Teacher pj = new Teacher(
+        TeacherEntity pj = new TeacherEntity(
                 "Professor Jirafales",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ruben2017.jpg/245px-Ruben2017.jpg",
                 "jirafales@yahoo_.com"
         );
-        Teacher px = new Teacher(
+        TeacherEntity px = new TeacherEntity(
                 "Professor X",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9uI1Cb-nQ2uJOph4_t96KRvLSMjczAKnHLJYi1nqWXagvqWc4",
                 "director@xproject_.com"
         );
 
-        Teacher pt = new Teacher(
+        TeacherEntity pt = new TeacherEntity(
                 "Professor Boberson",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9uI1Cb-nQ2uJOph4_t96KRvLSMjczAKnHLJYi1nqWXagvqWc4",
                 "bob@bob.com"
@@ -42,11 +42,11 @@ public class DataFillerService {
         teacherRepository.save(px);
         teacherRepository.save(pt);
         // create courses
-        Course mathematics = new Course("Mathematics", 20, (short) 10, pj);
-        Course spanish = new Course("Spanish", 20, (short) 10, pj);
-        Course dealingWithUnknown = new Course("Dealing with unknown", 10, (short) 100, pj);
-        Course handlingYourMentalPower = new Course("Handling your mental power", 50, (short) 100, pj);
-        Course introductionToPsychology = new Course("Introduction to psychology", 90, (short) 100, pj);
+        CourseEntity mathematics = new CourseEntity("Mathematics", 20, (short) 10, pj);
+        CourseEntity spanish = new CourseEntity("Spanish", 20, (short) 10, pj);
+        CourseEntity dealingWithUnknown = new CourseEntity("Dealing with unknown", 10, (short) 100, pj);
+        CourseEntity handlingYourMentalPower = new CourseEntity("Handling your mental power", 50, (short) 100, pj);
+        CourseEntity introductionToPsychology = new CourseEntity("Introduction to psychology", 90, (short) 100, pj);
         courseRepository.save(mathematics);
         courseRepository.save(spanish);
         courseRepository.save(dealingWithUnknown);

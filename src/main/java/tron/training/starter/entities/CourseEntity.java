@@ -13,12 +13,12 @@ import javax.persistence.ManyToOne;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Course extends EntityWithUUID{
+public class CourseEntity extends EntityWithUUID{
 
     private String name;
     private int workload;
     private short rate;
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_course_teacher"))
-    private Teacher teacher;
+    private TeacherEntity teacherEntity;
 }
