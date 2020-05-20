@@ -176,6 +176,8 @@ components:
   schemas:
     Course:
       description: ''
+      required:
+        - id
       type: object
       properties:
         id:
@@ -196,6 +198,8 @@ components:
           description: ''
     Teacher:
       description: ''
+      required:
+        - id
       type: object
       properties:
         id:

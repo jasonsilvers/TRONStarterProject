@@ -2,14 +2,15 @@ import IState, {ById, IEntity} from "../types/State";
 import initialState from "../context/initialState";
 import {Action, SET_TEACHERS, SET_USERNAME,} from "../actions/actions";
 import {Teacher} from "../api";
+import {createEntities} from "../utilities/utils";
 
 //Used to update state
 const reducer = (state: IState = initialState, action: Action): IState => {
 
-/**
- * Reducer Switch statements are split in to categories
- *  1
- */
+    /**
+     * Reducer Switch statements are split in to categories
+     *  1
+     */
 
     /**
      * Event Switch Cases
@@ -25,35 +26,12 @@ const reducer = (state: IState = initialState, action: Action): IState => {
             }
         }
         case SET_TEACHERS: {
-            const teachersObject: ById<Teacher> = action.payload.reduce((newObject: ById<Teacher>, teacher) => {
-                return teacher.id
-                    ? {
-                    ...newObject,
-                        [teacher.id]: {
-                            ...teacher
-                        }
-                    }
-                    : newObject;
-            }, {})
 
-            console.log(teachersObject)
-
-            const allIds = action.payload
-                .map(teacher => {
-                    console.log(teacher)
-                    return (teacher.id ? teacher.id : '')
-                })
-                .filter(teacherId => teacherId !== '')
-
-            console.log(allIds);
+            const teacherEntities = createEntities<Teacher>(action.payload)
 
             const newState = {
                 ...state,
-                teachers: {
-                    byId: teachersObject,
-                    allIds: allIds
-                }
-
+                teachers: teacherEntities
             }
 
             console.log(newState);
@@ -64,9 +42,9 @@ const reducer = (state: IState = initialState, action: Action): IState => {
             return state;
     }
 
-    }
+}
 
-    export default reducer;
+export default reducer;
 
 //Selectors - Allows extraction of data from the store state
 //export const getState = (state: IState) => state
