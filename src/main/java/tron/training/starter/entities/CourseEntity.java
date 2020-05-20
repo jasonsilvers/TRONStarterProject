@@ -21,4 +21,6 @@ public class CourseEntity extends EntityWithUUID{
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_course_teacher"))
     private TeacherEntity teacherEntity;
+
+
 }

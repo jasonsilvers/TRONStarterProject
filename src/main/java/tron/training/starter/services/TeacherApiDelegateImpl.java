@@ -21,7 +21,7 @@ public class TeacherApiDelegateImpl implements TeachersApiDelegate {
     private TeacherRepository teacherRepository;
 
     @Override
-    public ResponseEntity<List<Teacher>> getteachers() {
+    public ResponseEntity<List<Teacher>> getTeachers() {
         List<TeacherEntity> teacherEntities = (List<TeacherEntity>) teacherRepository.findAll();
         ModelMapper modelMapper = new ModelMapper();
         List<Teacher> teachers = teacherEntities

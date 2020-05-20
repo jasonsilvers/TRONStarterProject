@@ -3,8 +3,13 @@ import IState from "../types/State";
 
 const initialState: IState = {
     user: {
-        name: 'Jason'
+        name: 'Jason',
+    },
+    teachers: {
+        byId: {},
+        allIds: []
     }
+
 }
 export default initialState;
 

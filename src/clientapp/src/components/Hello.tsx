@@ -12,12 +12,6 @@ const Hello: FunctionComponent<Props> = (props) => {
     const {state} = useContext(StateContext)
     const {dispatch} = useContext(DispatchContext)
 
-    useEffect(() => {
-      setTimeout(() => {
-            dispatch(setUserName("Frank"));
-      }, 5000)
-    }, [dispatch]);
-
     return (
         <div>
           Welcome - {state.user.name}

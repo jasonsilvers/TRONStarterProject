@@ -20,7 +20,7 @@ public class CourseApiDelegateImpl implements CoursesApiDelegate {
     CourseRepository courseRepository;
 
     @Override
-    public ResponseEntity<List<Course>> getcourses() {
+    public ResponseEntity<List<Course>> getCourses() {
 
         List<CourseEntity> courseEntities = (List<CourseEntity>) courseRepository.findAll();
         ModelMapper modelMapper = new ModelMapper();
@@ -28,6 +28,7 @@ public class CourseApiDelegateImpl implements CoursesApiDelegate {
                                 .stream()
                                 .map(courseEntity -> modelMapper.map(courseEntity, Course.class))
                                 .collect(Collectors.toList());
+
 
         return ResponseEntity.ok(courses);
     }
