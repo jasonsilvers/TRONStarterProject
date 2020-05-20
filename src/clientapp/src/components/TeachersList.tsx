@@ -28,15 +28,6 @@ const TeachersList: FunctionComponent<Props> = (props) => {
                     </div>
                 )
             })}
-
-            {/*Option 2*/}
-            {/*{state.teachers.allIds.map(id => {*/}
-            {/*    return (*/}
-            {/*        <div key={id}>*/}
-            {/*            Hello - {state.teachers.byId[id].name}*/}
-            {/*        </div>*/}
-            {/*    )*/}
-            {/*})}*/}
         </div>
     );
 };

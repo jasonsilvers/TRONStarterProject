@@ -30,7 +30,7 @@ export interface Course {
      * @type {string}
      * @memberof Course
      */
-    id: string;
+    id?: string;
     /**
      * 
      * @type {string}
@@ -67,7 +67,7 @@ export interface Teacher {
      * @type {string}
      * @memberof Teacher
      */
-    id: string;
+    id?: string;
     /**
      * 
      * @type {string}

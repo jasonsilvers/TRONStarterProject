@@ -1,4 +1,4 @@
-import IState, {ById, IEntity} from "../types/State";
+import IState from "../types/State";
 import initialState from "../context/initialState";
 import {Action, SET_TEACHERS, SET_USERNAME,} from "../actions/actions";
 import {Teacher} from "../api";
@@ -26,17 +26,11 @@ const reducer = (state: IState = initialState, action: Action): IState => {
             }
         }
         case SET_TEACHERS: {
-
             const teacherEntities = createEntities<Teacher>(action.payload)
-
-            const newState = {
+            return {
                 ...state,
                 teachers: teacherEntities
-            }
-
-            console.log(newState);
-
-            return newState;
+            };
         }
         default:
             return state;

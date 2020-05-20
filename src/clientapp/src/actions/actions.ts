@@ -1,10 +1,7 @@
-import React from "react";
 import {action, ActionType} from 'typesafe-actions';
 import {Teacher} from "../api";
-import {IEntity} from "../types/State";
 import {AsyncAction} from "../types/AsyncAction";
 
-//Set Action CONST
 export const SET_USERNAME = 'SET_USERNAME';
 export const SET_TEACHERS = 'SET_TEACHERS';
 
@@ -14,7 +11,6 @@ export const getTeachersAsync: AsyncAction = () => (dispatch, _, getApi) => {
     getApi()
         .getTeachers()
         .then(response => {
-            console.log(response)
             dispatch(setTeachers(response.data))
         })
         .catch();
