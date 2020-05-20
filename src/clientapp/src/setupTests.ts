@@ -1,5 +1,14 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom/extend-expect'
+import {cleanup} from "@testing-library/react";
+
+/**
+ * The React testing library requires a clean up method to be called
+ * if using the render method
+ * Failure to call the clean up method will lead to tests failing that do not fail when ran alone
+ * This after each function is now global for all tests
+ *
+ * author: Mr 🐍
+ */
+afterEach(() => {
+    cleanup();
+});
