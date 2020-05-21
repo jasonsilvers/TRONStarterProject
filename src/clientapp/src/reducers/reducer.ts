@@ -16,6 +16,7 @@ const reducer = (state: IState = initialState, action: Action): IState => {
      * Event Switch Cases
      */
     switch (action.type) {
+
         case SET_USERNAME: {
             return {
                 ...state,
@@ -26,6 +27,7 @@ const reducer = (state: IState = initialState, action: Action): IState => {
             }
         }
         case SET_TEACHERS: {
+            debugger
             const teacherEntities = createEntities<Teacher>(action.payload)
             return {
                 ...state,

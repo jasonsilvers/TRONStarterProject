@@ -12,10 +12,9 @@ export const DispatchContext = createContext<{
     dispatch: Dispatch<Action | Thunk<IState, Action>>;
     getApi: () => DefaultApi;
 }>({
-        dispatch: () => null,
-        getApi: () => new DefaultApi()
-    }
-)
+    dispatch: () => null,
+    getApi: () => new DefaultApi()
+})
 
 declare global {
     interface Window {

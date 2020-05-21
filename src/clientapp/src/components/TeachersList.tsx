@@ -17,6 +17,13 @@ const TeachersList: FunctionComponent<Props> = (props) => {
         dispatch(getTeachersAsync());
     }, [dispatch]);
 
+    if (state.teachers.allIds.length === 0) {
+        return (
+            <p>
+                no teachers
+            </p>
+        )
+    }
     return (
         <div>
             <h1>Teachers List</h1>

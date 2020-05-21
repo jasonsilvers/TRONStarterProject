@@ -5,7 +5,7 @@ import {AppProvider} from "./context/AppContext";
 import Hello from "./components/Hello";
 import TeachersList from "./components/TeachersList";
 
-function App() {
+const App: React.FC = () => {
     return (
         <AppProvider>
             <Hello />

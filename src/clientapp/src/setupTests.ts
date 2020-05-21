@@ -1,5 +1,8 @@
 import '@testing-library/jest-dom/extend-expect'
 import {cleanup} from "@testing-library/react";
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
 
 /**
  * The React testing library requires a clean up method to be called
